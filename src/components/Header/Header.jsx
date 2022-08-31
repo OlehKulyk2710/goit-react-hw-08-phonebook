@@ -5,9 +5,10 @@ export const Header = () => {
     <NavBar>
       <Container>
         <LinkWrapper>
-          <NavLinkStyled to="/register">register</NavLinkStyled>
-          <NavLinkStyled to="/login">login</NavLinkStyled>
-          <NavLinkStyled to="/contacts">contacts</NavLinkStyled>
+          <NavLinkStyled to="/">Home</NavLinkStyled>
+          <NavLinkStyled to="/register">Register</NavLinkStyled>
+          <NavLinkStyled to="/login">Login</NavLinkStyled>
+          <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
         </LinkWrapper>
       </Container>
     </NavBar>

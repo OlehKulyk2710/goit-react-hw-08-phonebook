@@ -1,4 +1,6 @@
 import { Outlet } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
 import { Header, Main } from 'components';
 
 export const Layout = () => {
@@ -8,6 +10,7 @@ export const Layout = () => {
       <Main>
         <Outlet />
       </Main>
+      <Toaster position="top-left" />
     </>
   );
 };

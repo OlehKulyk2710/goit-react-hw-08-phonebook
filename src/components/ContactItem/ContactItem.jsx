@@ -1,6 +1,6 @@
 import { useDeleteContactMutation } from 'redux/contactsApi';
 import css from './ContactItem.module.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const ContactItem = ({ id, name, number }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -25,8 +25,8 @@ const ContactItem = ({ id, name, number }) => {
 
 export default ContactItem;
 
-ContactItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};
+// ContactItem.propTypes = {
+//   id: PropTypes.string.isRequired,
+//   name: PropTypes.string.isRequired,
+//   number: PropTypes.string.isRequired,
+// };

@@ -1,14 +1,8 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
-import {
-  Layout,
-  Home,
-  UserRegistration,
-  UserLogin,
-  Contacts,
-  NotFound,
-} from 'pages';
+import { Layout, UserRegistration, UserLogin, Contacts, NotFound } from 'pages';
+import { Home } from 'components';
 
 const App = () => {
   return (
