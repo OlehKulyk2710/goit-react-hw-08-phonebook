@@ -5,25 +5,19 @@ import authOperations from 'redux/auth/auth-operations';
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { normalizeInputData } from 'services/normalizedInputData';
-import { validateData } from 'services/validation';
-import { BoxStyled, Heading, RegContainer } from './RegistrationForm.styled';
+import { BoxStyled, Heading, LogInContainer } from './UserLogIn.styled';
 
-export const RegistrationForm = () => {
+export const UserLogIn = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleChange = e => {
-    const { name, email, password } = CONSTANTS;
+    const { email, password } = CONSTANTS;
     const inputName = e.target.name;
     const inputValue = e.target.value;
 
     switch (inputName) {
-      case name:
-        setName(inputValue);
-        break;
       case email:
         setEmail(inputValue);
         break;
@@ -37,27 +31,20 @@ export const RegistrationForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const formData = {
-      name,
+    const userData = {
       email,
       password,
     };
 
-    const normalizedFormData = normalizeInputData(formData);
-    const validatedData = validateData(normalizedFormData);
-    console.log('validatedData', validatedData);
-    if (!validatedData) return;
+    dispatch(authOperations.logIn(userData));
 
-    dispatch(authOperations.register(normalizedFormData));
-
-    setName('');
     setEmail('');
     setPassword('');
   };
 
   return (
-    <RegContainer>
-      <Heading>Registration Form</Heading>
+    <LogInContainer>
+      <Heading>Log in</Heading>
       <BoxStyled
         component="form"
         name="reg-form"
@@ -67,17 +54,6 @@ export const RegistrationForm = () => {
           '& .MuiTextField-root': { m: 1, width: '30ch' },
         }}
       >
-        <TextField
-          onChange={handleChange}
-          autoComplete="given-name"
-          name={CONSTANTS.name}
-          value={name}
-          required
-          fullWidth
-          label="Name"
-          autoFocus
-        />
-
         <TextField
           onChange={handleChange}
           required
@@ -107,9 +83,9 @@ export const RegistrationForm = () => {
             width: '20ch',
           }}
         >
-          Sign Up
+          Log in
         </Button>
       </BoxStyled>
-    </RegContainer>
+    </LogInContainer>
   );
 };

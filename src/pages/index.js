@@ -1,5 +1,4 @@
 export * from './Layout';
-export * from './UserRegistration';
-export * from './UserLogin';
+export * from './Registration';
+export * from './LogIn';
 export * from './Contacts';
-export * from './NotFound';

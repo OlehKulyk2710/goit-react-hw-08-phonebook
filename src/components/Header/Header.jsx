@@ -1,14 +1,37 @@
-import { NavBar, Container, LinkWrapper, NavLinkStyled } from 'components';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth/auth-selectors';
+
+import {
+  NavBar,
+  Container,
+  LinkWrapper,
+  Wrapper,
+  NavLinkStyled,
+  UserMenu,
+} from 'components';
 
 export const Header = () => {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  console.log('isLoggedIn', isLoggedIn);
   return (
     <NavBar>
       <Container>
         <LinkWrapper>
-          <NavLinkStyled to="/">Home</NavLinkStyled>
-          <NavLinkStyled to="/register">Register</NavLinkStyled>
-          <NavLinkStyled to="/login">Login</NavLinkStyled>
-          <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
+          <Wrapper>
+            <NavLinkStyled to="/">Home</NavLinkStyled>
+            {isLoggedIn && (
+              <NavLinkStyled to="/contacts">Contacts</NavLinkStyled>
+            )}
+          </Wrapper>
+
+          {isLoggedIn ? (
+            <UserMenu />
+          ) : (
+            <Wrapper>
+              <NavLinkStyled to="/register">Register</NavLinkStyled>
+              <NavLinkStyled to="/login">Login</NavLinkStyled>
+            </Wrapper>
+          )}
         </LinkWrapper>
       </Container>
     </NavBar>
