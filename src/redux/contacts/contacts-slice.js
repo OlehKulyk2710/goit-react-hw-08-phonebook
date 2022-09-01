@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import authOperations from 'redux/auth/auth-operations';
 import { contactsOperations } from './contacts-operations';
 
 const initialState = [];
@@ -17,6 +18,9 @@ const contactsSlice = createSlice({
       const contactId = action.payload;
       const newState = state.filter(item => item.id !== contactId);
       return newState;
+    },
+    [authOperations.logOut.fulfilled]: state => {
+      return [];
     },
   },
 });
