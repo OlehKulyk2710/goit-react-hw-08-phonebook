@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import css from '../components/App/App';
 import { Container } from '../components';
 import { contactsOperations } from 'redux/contacts/contacts-operations';
@@ -9,11 +10,10 @@ import Filter from 'components/Filter/Filter';
 import { Toaster } from 'react-hot-toast';
 
 export const Contacts = () => {
-  const data = [{ id: 1, name: 'Oleh', number: '123' }];
-  console.log('Hi Contacts');
-
   const dispatch = useDispatch();
-  dispatch(contactsOperations.getContacts());
+  useEffect(() => {
+    dispatch(contactsOperations.getContacts());
+  }, [dispatch]);
 
   return (
     <>

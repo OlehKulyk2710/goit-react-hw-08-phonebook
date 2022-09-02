@@ -36,4 +36,8 @@ const deleteContact = createAsyncThunk(
   }
 );
 
-export const contactsOperations = { getContacts, createContact, deleteContact };
+export const contactsOperations = {
+  getContacts,
+  createContact,
+  deleteContact,
+};
