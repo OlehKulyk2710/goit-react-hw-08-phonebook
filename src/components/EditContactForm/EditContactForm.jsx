@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { contactsOperations } from 'redux/contacts/contacts-operations';
 import { contactsSelectors } from 'redux/contacts/contacts-selectors';

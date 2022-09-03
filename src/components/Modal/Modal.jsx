@@ -1,10 +1,8 @@
-import { createPortal } from 'react-dom';
+import { Container, EditContactForm, Heading } from 'components';
 import PropTypes from 'prop-types';
-import { Overlay, WorkSpace } from './Modal.styled';
 import { useEffect } from 'react';
-import { EditContactForm } from 'components';
-import { Heading } from 'components';
-import { Container } from 'components';
+import { createPortal } from 'react-dom';
+import { Overlay, WorkSpace } from './Modal.styled';
 
 const modalRoot = document.getElementById('modal-root');
 

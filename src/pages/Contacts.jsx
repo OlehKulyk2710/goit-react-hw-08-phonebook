@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
-import { Heading, Title } from 'components';
-import { Container } from '../components';
-import { contactsOperations } from 'redux/contacts/contacts-operations';
 import { useDispatch } from 'react-redux';
+import { Container, Heading, Title } from 'components';
+import { contactsOperations } from 'redux/contacts/contacts-operations';
 
 import { ContactForm, ContactList } from 'components';
 import Filter from 'components/Filter/Filter';

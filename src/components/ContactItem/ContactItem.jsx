@@ -1,11 +1,11 @@
+import { Modal } from 'components';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { contactsOperations } from 'redux/contacts/contacts-operations';
 import { BiEdit } from 'react-icons/bi';
 import { BsDot } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { contactsOperations } from 'redux/contacts/contacts-operations';
 import css from './ContactItem.module.css';
-import { Modal } from 'components';
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();

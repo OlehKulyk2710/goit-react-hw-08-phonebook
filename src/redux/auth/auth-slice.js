@@ -17,6 +17,9 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [authOperations.register.rejected]: state => {
+      state.isLoggedIn = false;
+    },
     [authOperations.getCurrentUser.pending]: state => {
       state.fetchingCurrentUser = true;
     },

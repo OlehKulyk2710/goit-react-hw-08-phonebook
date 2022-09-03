@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateValue } from 'redux/filterSlice';
 import css from './Filter.module.css';
 
