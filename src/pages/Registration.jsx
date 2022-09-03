@@ -1,9 +1,11 @@
 import { UserRegistration } from 'components';
 
-export const Registration = () => {
+const Registration = () => {
   return (
     <>
       <UserRegistration />
     </>
   );
 };
+
+export default Registration;

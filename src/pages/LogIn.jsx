@@ -1,5 +1,7 @@
 import { UserLogIn } from 'components';
 
-export const LogIn = () => {
+const LogIn = () => {
   return <UserLogIn />;
 };
+
+export default LogIn;

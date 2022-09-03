@@ -12,7 +12,6 @@ import {
 
 export const Header = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  console.log('isLoggedIn', isLoggedIn);
   return (
     <NavBar>
       <Container>

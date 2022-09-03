@@ -4,7 +4,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 const getContacts = createAsyncThunk('contacts/getContacts', async () => {
   try {
     const { data } = await axios.get('/contacts');
-    console.log('getContacts', data);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -16,7 +15,6 @@ const createContact = createAsyncThunk(
   async contactData => {
     try {
       const { data } = await axios.post('/contacts', contactData);
-      console.log('createContact', data);
       return data;
     } catch (error) {
       console.log(error.message);
@@ -25,7 +23,7 @@ const createContact = createAsyncThunk(
 );
 
 const deleteContact = createAsyncThunk(
-  'contacts/deleteContacts',
+  'contacts/deleteContact',
   async contactId => {
     try {
       await axios.delete(`/contacts/${contactId}`);
@@ -36,8 +34,31 @@ const deleteContact = createAsyncThunk(
   }
 );
 
+const updateContact = createAsyncThunk(
+  'contacts/updateContact',
+  async (updatedData, thunkAPI) => {
+    const { id: contactId, name, number } = updatedData;
+    try {
+      const { data } = await axios.patch(`/contacts/${contactId}`, {
+        name,
+        number,
+      });
+
+      const items = thunkAPI.getState().contacts.items;
+      const updatedItems = items.map(item => {
+        return item.id === data.id ? data : item;
+      });
+
+      return updatedItems;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+);
+
 export const contactsOperations = {
   getContacts,
   createContact,
   deleteContact,
+  updateContact,
 };

@@ -1,3 +1,13 @@
+.contacts__item {
+  display: flex;
+  align-items: center;
+}
+
+.contacts__text {
+  margin: 0;
+  display: inline-block;
+}
+
 .contacts__item:not(:last-child) {
   margin-bottom: 10px;
 }
@@ -5,6 +15,7 @@
 .contacts__btn {
   display: inline-block;
   margin-left: 15px;
+  margin-right: 5px;
   padding: 1px 2px;
 
   font-size: 12px;
@@ -17,10 +28,32 @@
   cursor: pointer;
 }
 
+.contacts__btn:hover {
+  scale: 1.1;
+}
+
 .contacts__btn:active {
   background-color: rgba(7, 109, 192, 0.9);
 }
 
 .contacts__btn:disabled {
   background-color: grey;
+}
+
+.btn__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.edit__btn {
+  background-color: white;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.edit__btn:hover {
+  scale: 1.2;
 }

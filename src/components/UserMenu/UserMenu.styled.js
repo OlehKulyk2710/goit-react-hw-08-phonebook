@@ -9,4 +9,5 @@ export const Wrapper = styled.div`
 export const Text = styled.p`
   margin: 0;
   font-size: 18px;
+  font-weight: 600;
 `;

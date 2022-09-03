@@ -1,14 +1,21 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import PropTypes from 'prop-types';
+
 import { contactsOperations } from 'redux/contacts/contacts-operations';
 import { contactsSelectors } from 'redux/contacts/contacts-selectors';
 import { CONSTANTS } from 'services/constants';
-import css from './ContactForm.module.css';
+import css from './EditContactForm.module.css';
 
-export const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+export const EditContactForm = ({
+  id,
+  name: currentName,
+  number: currentNumber,
+  onModalClose,
+}) => {
+  const [name, setName] = useState(currentName);
+  const [number, setNumber] = useState(currentNumber);
   const dispatch = useDispatch();
   const contacts = useSelector(contactsSelectors.getContacts);
 
@@ -31,7 +38,7 @@ export const ContactForm = () => {
   const checkNewName = name => {
     const newName = name.toLowerCase();
     const isNameExist = contacts.filter(
-      item => item.name.toLowerCase() === newName
+      item => item.name.toLowerCase() === newName && item.id !== id
     );
     return isNameExist.length;
   };
@@ -45,10 +52,12 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(contactsOperations.createContact({ name, number }));
+    dispatch(contactsOperations.updateContact({ id, name, number }));
 
     setName('');
     setNumber('');
+
+    onModalClose();
   };
 
   return (
@@ -80,8 +89,15 @@ export const ContactForm = () => {
         />
       </label>
       <button type="submit" className={css.btn__submit}>
-        Add contact
+        Submit
       </button>
     </form>
   );
+};
+
+EditContactForm.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onModalClose: PropTypes.func.isRequired,
 };

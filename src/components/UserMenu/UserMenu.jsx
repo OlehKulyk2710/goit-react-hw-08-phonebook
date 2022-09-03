@@ -10,7 +10,6 @@ export const UserMenu = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    console.log('Click');
     dispatch(authOperations.logOut());
   };
   return (

@@ -45,7 +45,6 @@ export const UserRegistration = () => {
 
     const normalizedUserData = normalizeInputData(userData);
     const validatedData = validateData(normalizedUserData);
-    console.log('validatedData', validatedData);
     if (!validatedData) return;
 
     dispatch(authOperations.register(normalizedUserData));

@@ -12,23 +12,27 @@ export const Main = styled.main`
   padding-bottom: 25px;
 `;
 
-// export const Container = styled.div`
+export const Heading = styled.h1`
+  padding: 0;
+  margin: 0;
+  margin-bottom: 25px;
+  text-decoration: underline;
+`;
+
+export const Title = styled.h2`
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+`;
+
+export const MainText = styled.p`
+  font-size: 18px;
+`;
+
+// .container {
 //   width: 480px;
 //   margin: 10px auto 0;
 //   padding: 20px;
 //   border: 1px solid #757575;
 //   border-radius: 10px;
-// `;
-
-// .title__phonebook,
-// .title__contacts {
-//   padding: 0;
-//   margin: 0;
-//   margin-bottom: 25px;
-//   text-decoration: underline;
-// }
-
-// .title__contacts {
-//   text-decoration: none;
-//   margin-bottom: 15px;
 // }

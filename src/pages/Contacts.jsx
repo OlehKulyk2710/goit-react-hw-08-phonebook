@@ -1,15 +1,14 @@
 import { useEffect } from 'react';
-import css from '../components/App/App';
+import { Heading, Title } from 'components';
 import { Container } from '../components';
 import { contactsOperations } from 'redux/contacts/contacts-operations';
 import { useDispatch } from 'react-redux';
 
-import ContactList from 'components/ContactList/ContactList';
-import ContactForm from 'components/ContactForm/ContactForm';
+import { ContactForm, ContactList } from 'components';
 import Filter from 'components/Filter/Filter';
 import { Toaster } from 'react-hot-toast';
 
-export const Contacts = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(contactsOperations.getContacts());
@@ -18,10 +17,9 @@ export const Contacts = () => {
   return (
     <>
       <Container>
-        <h1 className={css.title__phonebook}>Phonebook</h1>
+        <Heading>Phonebook</Heading>
         <ContactForm />
-
-        <h2 className={css.title__contacts}>Contacts</h2>
+        <Title>Contacts</Title>
         <Filter />
         <ContactList />
       </Container>
@@ -29,3 +27,5 @@ export const Contacts = () => {
     </>
   );
 };
+
+export default Contacts;
